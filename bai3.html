@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let str = prompt("Nhập vào một đoạn văn:");
+      //   TheF
+      console.log(str);
+      let result = "";
+      const upper = "ABCDEFGHIKLMNOPQRSTUVXYZW";
+
+      for (let i = 0; i < str.length; i++) {
+        if (upper.includes(str[i])) {
+          result += str[i].toLowerCase();
+        } else {
+          result += str[i].toUpperCase();
+        }
+      }
+      console.log(result);
+
+      //   Cách 2
+      let result2 = "";
+      //   B1. Duyệt qua từng phần tử của str
+      for (let i = 0; i < str.length; i++) {
+        // B2. Gán checkUpper = false => hiện tại, chưa có giá trị str[i] nào là chữ in hoa
+        let checkUpper = false;
+        // B3. Lặp qua các phần từ của upper để so sánh với giá trị str[i]
+        for (let j = 0; j < upper.length; j++) {
+          // B4. Kiểm tra xem giá trị str[i] có in hoa hay không
+          if (str[i] == upper[j]) {
+            // B4.1 => biến đổi in hoa thành in thường
+            result2 += str[i].toLowerCase();
+            // B4.2 => Xác định kết quả có giá trị in hoa
+            checkUpper = true;
+            // Thoát khỏi upper
+            break;
+          }
+        }
+        // Kiểm tra xem str[i] đã chuyển đổi in hoa hay chưa
+        if (!checkUpper) {
+          result2 += str[i].toUpperCase();
+        }
+      }
+      console.log("result 2", result2);
+    </script>
+  </body>
+</html>
